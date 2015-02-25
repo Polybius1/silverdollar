@@ -69,9 +69,29 @@ moveto = scan.nextInt();
 
 }
 	
-	public void printBoard(){
-		//post: prints board
-	}
+	void printBoard() {
+//prints the board
+//along with a row of integers to display position info
+char COIN = '0';
+char SPACE = '-';
+
+
+   for(int i = 0; i < strip.length; i++) {
+      System.out.print(i);
+      }
+      //carriage return
+      System.out.println("");
+      //parse the array and represent each space with a 
+      //SPACE or COIN
+      for(int i = 0; i < strip.length; i++) {
+         if(strip[i] == false) 
+            System.out.print(SPACE);
+         else if(strip[i] == true)
+            System.out.print(COIN);
+       }
+     }
+}
+
 	
 	
 	public static void main(String[] args) {
