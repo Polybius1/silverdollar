@@ -30,15 +30,44 @@ public class Silverdollar {
 		return gameCoin;
 	}
 	
-	public void moveCoin(){
-		//post: moves the coin along the strip
-		if (strip[nextSpace] == true){
-			
-			
-		}
-		strip[nextSpace] = true;
-		nextSpace++;
-	}
+//method for moving a coin: input a coin
+//and position to move to, as represented by indices
+//check to make sure coin chosen and board space are valid
+//loop until valid input is given 
+
+void moveCoin() { 
+
+scanner scan = new scanner(System.in);
+boolean success = false;
+int coin;
+int moveto;
+
+while(success == false) {
+
+System.out.println("Which coin do you want to move? Enter a number.");
+coin = scan.nextInt();
+System.out.println("Where do you want to move it? Enter a number.");
+moveto = scan.nextInt();
+
+
+
+//if there is a coin at the chosen index and the index is within the board
+   if(strip[coin] == 1 && coin >= 0 && coin > moveto && coin <= stripSize) {
+      //check if there are any coins between our chose coin
+      //and the destination.
+      for(int i = coin - 1; i >= moveto; i--) {
+         if(strip[i] == true) {
+         System.out.println("Not a valid move.");
+         }
+         else {
+            strip[moveto] = true;
+            strip[coin] = false;
+            success = true;
+          }
+        }
+}
+
+}
 	
 	public void printBoard(){
 		//post: prints board
